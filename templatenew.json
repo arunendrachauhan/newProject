@@ -210,11 +210,11 @@
                     "adSubnet": {
                         "value": "[parameters('adSubnet')]"
                     },
-                    "mySubnetName": {
-                        "value": "[parameters('mySubnetName')]"
+                    "myVMSubnetName": {
+                        "value": "[parameters('myVMSubnetName')]"
                     },
-                    "mySubnet": {
-                        "value": "[parameters('mySubnet')]"
+                    "myVMSubnet": {
+                        "value": "[parameters('myVMSubnet')]"
                     },
                     "location": {
                         "value": "[parameters('location')]"
@@ -361,7 +361,7 @@
                         "value": "[parameters('MYVMName')]"
                     },
                     "vmIpAddress": {
-                        "value": "[parameters('MYVMIPAddress')]"
+                        "value": "[parameters('MYVMPAddress')]"
                     },
                     "adminUsername": {
                         "value": "[parameters('adminUsername')]"
