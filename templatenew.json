@@ -103,16 +103,16 @@
             },
             "defaultValue": "10.0.0.0/24"
         },
-        "myVMSubnetName": {
+        "mySubnetName": {
             "type": "string",
             "metadata": {
                 "description": "The name of the VM subnet created in the new VNET."
             },
-            "defaultValue": "myVMSubnet",
+            "defaultValue": "mySubnet",
             "minlength": 2,
             "maxlength": 16    
         },
-        "myVMSubnet": {
+        "mySubnet": {
             "type": "string",
             "metadata": {
                 "description": "The address range of the subnet created in the new VNET."
@@ -210,11 +210,11 @@
                     "adSubnet": {
                         "value": "[parameters('adSubnet')]"
                     },
-                    "myVMSubnetName": {
-                        "value": "[parameters('myVMSubnetName')]"
+                    "mySubnetName": {
+                        "value": "[parameters('mySubnetName')]"
                     },
-                    "myVMSubnet": {
-                        "value": "[parameters('myVMSubnet')]"
+                    "mySubnet": {
+                        "value": "[parameters('mySubnet')]"
                     },
                     "location": {
                         "value": "[parameters('location')]"
@@ -361,7 +361,7 @@
                         "value": "[parameters('MYVMName')]"
                     },
                     "vmIpAddress": {
-                        "value": "[parameters('MYVMPAddress')]"
+                        "value": "[parameters('MYVMIPAddress')]"
                     },
                     "adminUsername": {
                         "value": "[parameters('adminUsername')]"

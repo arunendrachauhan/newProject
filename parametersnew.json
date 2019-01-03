@@ -35,20 +35,20 @@
     "adSubnet": {
       "value": "10.0.0.0/24"
     },
-    "myVMSubnetName": {
-      "value": "myVMSubnet"
+    "mySubnetName": {
+      "value": "mySubnet"
     },
-    "myVMSubnet": {
+    "mySubnet": {
       "value": "10.0.1.0/24"
     },
     "ADVMName": {
-      "value": "rootdc1"
+      "value": "ADVM"
     },
     "ADVMIPAddress": {
       "value": "10.0.0.4"
     },
     "MYVMName": {
-      "value": "rootdc2"
+      "value": "MYVM"
     },
     "MYVMIPAddress": {
       "value": "10.0.0.5"
