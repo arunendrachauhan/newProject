@@ -182,7 +182,7 @@
         "vnetwithDNSTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/vnet-with-dns-server.json',parameters('_artifactsLocationSasToken'))]",
         "configureMyVMTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/configureMYVM.json',parameters('_artifactsLocationSasToken'))]",
         "createForestTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/createForest.json',parameters('_artifactsLocationSasToken'))]",
-        "MYVMConfigurationModulesURL": "[concat(parameters('_artifactsLocation'),'/Templates/ConfigureMYVM.ps1',parameters('_artifactsLocationSasToken'))]",
+        "MYVMConfigurationModulesURL": "[concat(parameters('_artifactsLocation'),'/Templates/ConfigureMYVM.zip',parameters('_artifactsLocationSasToken'))]",
         "MYVMConfigurationFunction": "ConfigureMYVM.ps1\\ConfigureMYVM"
     },
 	"resources": [

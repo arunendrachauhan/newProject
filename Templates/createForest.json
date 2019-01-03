@@ -30,8 +30,8 @@
     }
   },
   "variables": {
-    "configureADVMModulesURL": "[concat(parameters('_artifactsLocation'),'/Templates/configureADVM.ps1',parameters('_artifactsLocationSasToken'))]",
-    "ADVMConfigurationFunction": "ConfigureADVM.ps1\\configureADVM"
+    "configureADVMModulesURL": "[concat(parameters('_artifactsLocation'),'/Templates/ConfigureADVM.zip',parameters('_artifactsLocationSasToken'))]",
+    "ADVMConfigurationFunction": "ConfigureADVM.ps1\\ConfigureADVM"
   },
   "resources": [
 	{
