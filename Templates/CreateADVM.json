@@ -69,6 +69,13 @@
         "description": "The Storage type of the data Disks."
       }
     },
+	"_artifactsLocation": {
+      "type": "string"
+    },
+    "_artifactsLocationSasToken": {
+      "type": "securestring",
+      "defaultValue": ""
+    },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
@@ -85,7 +92,8 @@
     "vmOSDisk": "[concat(parameters('vmName'),'-managed-OSDisk')]",
     "vmDataDiskSize": 10,
     "imagePublisher": "MicrosoftWindowsServer",
-    "imageOffer": "WindowsServer"
+    "imageOffer": "WindowsServer",
+	"installModulesScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/installModules.ps1',parameters('_artifactsLocationSasToken'))]"
   },
   "resources": [
     {
@@ -191,10 +199,13 @@
             "type": "CustomScriptExtension",
             "typeHandlerVersion": "1.5",
             "autoUpgradeMinorVersion": true,
+			"settings": {
+			  "fileUris" : ["$ScriptExtensionUrl"],
+			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file installModules.ps1"
+			},
             "protectedSettings": {
               "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -encodedcommand cwBlAHQALQBlAHgAZQBjAHUAdABpAG8AbgBwAG8AbABpAGMAeQAgAHUAbgByAGUAcwB0AHIAaQBjAHQAZQBkAA==",
-			  "commandToExecute": "powershell.exe Install-Module xActiveDirectory, xNetworking, xStorage -Force"
-            }
+			}
           }
         }
       ]
