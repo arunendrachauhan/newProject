@@ -12,7 +12,7 @@
       "value": "Password@123"
     },
     "VMSize": {
-      "value": "Standard_DS1_v2"
+      "value": "Standard_DS2_v2"
     },
     "imageSKU": {
       "value": "2016-Datacenter"
