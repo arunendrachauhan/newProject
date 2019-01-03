@@ -210,11 +210,11 @@
                     "adSubnet": {
                         "value": "[parameters('adSubnet')]"
                     },
-                    "myVMSubnetName": {
-                        "value": "[parameters('myVMSubnetName')]"
+                    "mySubnetName": {
+                        "value": "[parameters('mySubnetName')]"
                     },
-                    "myVMSubnet": {
-                        "value": "[parameters('myVMSubnet')]"
+                    "mySubnet": {
+                        "value": "[parameters('mySubnet')]"
                     },
                     "location": {
                         "value": "[parameters('location')]"
