@@ -1,4 +1,4 @@
-configuration ConfigureADNextDC
+configuration ConfigureMYVM
 {
    param
     (
