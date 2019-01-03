@@ -197,14 +197,14 @@
           "properties": {
             "publisher": "Microsoft.Compute",
             "type": "CustomScriptExtension",
-            "typeHandlerVersion": "1.5",
+            "typeHandlerVersion": "1.9",
             "autoUpgradeMinorVersion": true,
 			"settings": {
-			  "fileUris" : ["$ScriptExtensionUrl"],
+			  "fileUris" : "[variables('installModulesScriptURI')]",
 			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file installModules.ps1"
 			},
             "protectedSettings": {
-              "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -encodedcommand cwBlAHQALQBlAHgAZQBjAHUAdABpAG8AbgBwAG8AbABpAGMAeQAgAHUAbgByAGUAcwB0AHIAaQBjAHQAZQBkAA==",
+              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -encodedcommand cwBlAHQALQBlAHgAZQBjAHUAdABpAG8AbgBwAG8AbABpAGMAeQAgAHUAbgByAGUAcwB0AHIAaQBjAHQAZQBkAA==",
 			}
           }
         }
