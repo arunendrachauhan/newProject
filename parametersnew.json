@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "DomainName": {
+      "value": "globant.com"
+    },
+    "adminUsername": {
+      "value": "Admin123"
+    },
+    "adminPassword": {
+      "value": "Password@123"
+    },
+    "VMSize": {
+      "value": "Standard_DS1_v2"
+    },
+    "imageSKU": {
+      "value": "2016-Datacenter"
+    },
+    "diskType": {
+      "value": "StandardSSD_LRS"
+    },
+    "virtualNetworkName": {
+      "value": "adVNET"
+    },
+    "virtualNetworkAddressRange": {
+      "value": "10.0.0.0/22"
+    },
+    "externalDNSForwarder": {
+      "value": "168.63.129.16"
+    },
+    "adSubnetName": {
+      "value": "adSubnet"
+    },
+    "adSubnet": {
+      "value": "10.0.0.0/24"
+    },
+    "myVMSubnetName": {
+      "value": "myVMSubnet"
+    },
+    "myVMSubnet": {
+      "value": "10.0.1.0/24"
+    },
+    "ADVMName": {
+      "value": "rootdc1"
+    },
+    "ADVMIPAddress": {
+      "value": "10.0.0.4"
+    },
+    "MYVMName": {
+      "value": "rootdc2"
+    },
+    "MYVMIPAddress": {
+      "value": "10.0.0.5"
+    },
+    "location": {
+      "value": "[resourceGroup().location]"
+    }
+  }
+}
