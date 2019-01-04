@@ -46,7 +46,7 @@
                   "[variables('AddADUsersScriptURI')]",
                   "[variables('ADUsersListURI')]"
                ],
-               "commandToExecute":"powershell -ExecutionPolicy Unrestricted -file ADUsers.csv,AddADUsers.ps1 -run './AddADUsers.ps1'"
+               "commandToExecute":"powershell -ExecutionPolicy Unrestricted -file AddADUsers.ps1 -run './AddADUsers.ps1'"
             }
          }
       }
