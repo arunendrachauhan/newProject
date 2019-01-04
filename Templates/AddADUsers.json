@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
+    },
+    "adminUsername": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "_artifactsLocation": {
+      "type": "string"
+    },
+    "_artifactsLocationSasToken": {
+      "type": "securestring",
+      "defaultValue": ""
+    }
+  },
+  "variables": {
+    "AddADUsersScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/AddADUsers.ps1',parameters('_artifactsLocationSasToken'))]",
+    "ADUsersListURI": "[concat(parameters('_artifactsLocation'),'/Templates/ADUsers.csv',parameters('_artifactsLocationSasToken'))]"
+  },
+  "resources": [
+        {
+          "apiVersion": "2018-06-01",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "name": "[concat(parameters('vmName'),'/vmEnablePSScript')]",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.9",
+            "autoUpgradeMinorVersion": true,
+			"settings": {
+			  "fileUris" : ["[variables('AddADUsersScriptURI')]","[variables('ADUsersListURI')]"],
+			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file ADUsers.csv",
+			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file AddADUsers.ps1 -run './AddADUsers.ps1'"
+			}
+          }
+        }
+  ],
+  "outputs": {}
+}

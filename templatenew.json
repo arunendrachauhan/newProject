@@ -183,7 +183,8 @@
         "configureMyVMTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/configureMYVM.json',parameters('_artifactsLocationSasToken'))]",
         "createForestTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/createForest.json',parameters('_artifactsLocationSasToken'))]",
         "MYVMConfigurationModulesURL": "[concat(parameters('_artifactsLocation'),'/Templates/ConfigureMYVM.zip',parameters('_artifactsLocationSasToken'))]",
-        "MYVMConfigurationFunction": "ConfigureMYVM.ps1\\ConfigureMYVM"
+        "MYVMConfigurationFunction": "ConfigureMYVM.ps1\\ConfigureMYVM",
+		"AddADUsersTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/AddADUsers.json',parameters('_artifactsLocationSasToken'))]"
     },
 	"resources": [
         
@@ -474,6 +475,41 @@
                     },
                     "location": {
                         "value": "[parameters('location')]"
+                    }
+                }
+            }
+        },
+		{
+            "name": "AddADUsers",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-08-01",
+            "dependsOn": [
+                "Microsoft.Resources/deployments/CreateForest"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('AddADUsersTemplateUri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "vmName": {
+                        "value": "[parameters('ADVMName')]"
+                    },
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
+                    "adminUsername": {
+                        "value": "[parameters('adminUsername')]"
+                    },
+                    "adminPassword": {
+                        "value": "[parameters('adminPassword')]"
+                    },
+                    "_artifactsLocation": {
+                        "value": "[parameters('_artifactsLocation')]"
+                    },
+                    "_artifactsLocationSasToken": {
+                        "value": "[parameters('_artifactsLocationSasToken')]"
                     }
                 }
             }

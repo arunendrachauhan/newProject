@@ -1,5 +1,5 @@
 ﻿#Enter a path to your import CSV file
-$ADUsers = Import-csv C:\scripts\newusers.csv
+$ADUsers = Import-csv C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\*\ADUsers.csv
 
 foreach ($User in $ADUsers)
 {
@@ -24,7 +24,7 @@ foreach ($User in $ADUsers)
         #Account will be created in the OU listed in the $OU variable in the CSV file; don’t forget to change the domain name in the"-UserPrincipalName" variable
               New-ADUser `
             -SamAccountName $Username `
-            -UserPrincipalName "$Username@yourdomain.com" `
+            -UserPrincipalName "$Username@globant.com" `
             -Name "$Firstname $Lastname" `
             -GivenName $Firstname `
             -Surname $Lastname `
@@ -37,3 +37,9 @@ foreach ($User in $ADUsers)
 
        }
 }
+$out = Get-ADUser -Filter{name -like "*" } | Select-object Samaccountname,givenname,surname,enabled 
+$Object = New-Object PSObject -Property @{
+"User Name" = $out.givenname
+"SamAccountName" = $out.Samaccountname
+"User Active State" = $out.enabled
+} | Export-Csv C:\userStatus.csv -NoTypeInformation -Encoding UTF8
