@@ -24,8 +24,8 @@
       }
    },
    "variables":{
-      "AddADUsersScriptURI":"[concat(parameters('_artifactsLocation'),'/Templates/AddADUsers.ps1',parameters('_artifactsLocationSasToken'))]",
-      "ADUsersListURI":"[concat(parameters('_artifactsLocation'),'/Templates/ADUsers.csv',parameters('_artifactsLocationSasToken'))]"
+      "AddADUsersScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/AddADUsers.ps1',parameters('_artifactsLocationSasToken'))]",
+      "ADUsersListURI": "[concat(parameters('_artifactsLocation'),'/Templates/ADUsers.csv',parameters('_artifactsLocationSasToken'))]"
    },
    "resources":[
       {
