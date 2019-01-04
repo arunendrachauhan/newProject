@@ -188,7 +188,7 @@
       {
          "name":"CreateVNET",
          "type":"Microsoft.Resources/deployments",
-         "apiVersion":"2018-08-01",
+         "apiVersion":"2015-01-01",
          "properties":{
             "mode":"Incremental",
             "templateLink":{
@@ -249,7 +249,7 @@
       {
          "name":"CreateADVM",
          "type":"Microsoft.Resources/deployments",
-         "apiVersion":"2018-08-01",
+         "apiVersion":"2015-01-01",
          "dependsOn":[
             "[resourceId('Microsoft.Resources/deployments','CreateVNET')]"
          ],
@@ -302,7 +302,7 @@
       {
          "name":"CreateForest",
          "type":"Microsoft.Resources/deployments",
-         "apiVersion":"2018-08-01",
+         "apiVersion":"2015-01-01",
          "dependsOn":[
             "Microsoft.Resources/deployments/CreateADVM"
          ],
@@ -343,7 +343,7 @@
       {
          "name":"CreateMYVM",
          "type":"Microsoft.Resources/deployments",
-         "apiVersion":"2018-08-01",
+         "apiVersion":"2015-01-01",
          "dependsOn":[
             "[resourceId('Microsoft.Resources/deployments','CreateVNET')]"
          ],
@@ -396,7 +396,7 @@
       {
          "name":"ConfigureMYVM",
          "type":"Microsoft.Resources/deployments",
-         "apiVersion":"2018-08-01",
+         "apiVersion":"2015-01-01",
          "dependsOn":[
             "Microsoft.Resources/deployments/CreateMYVM"
          ],
@@ -437,7 +437,7 @@
       {
          "name":"UpdateVNet",
          "type":"Microsoft.Resources/deployments",
-         "apiVersion":"2018-08-01",
+         "apiVersion":"2015-01-01",
          "dependsOn":[
             "Microsoft.Resources/deployments/ConfigureMYVM"
          ],
@@ -478,7 +478,7 @@
       {
          "name":"AddADUsers",
          "type":"Microsoft.Resources/deployments",
-         "apiVersion":"2018-08-01",
+         "apiVersion":"2015-01-01",
          "dependsOn":[
             "Microsoft.Resources/deployments/CreateForest"
          ],
