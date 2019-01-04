@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-	"DomainName": {
+		"DomainName": {
             "type": "string",
             "metadata": {
                 "description": "Full FQDN name for the forest root domain."
@@ -10,7 +10,6 @@
             "defaultValue": "globant.com",
             "minlength": 4
         },
-        
         "adminUsername": {
             "type": "string",
             "metadata": {
@@ -183,10 +182,9 @@
         "configureMyVMTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/configureMYVM.json',parameters('_artifactsLocationSasToken'))]",
         "createForestTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/createForest.json',parameters('_artifactsLocationSasToken'))]",
         "AddADUsersTemplateUri": "[concat(parameters('_artifactsLocation'),'/Templates/AddADUsers.json',parameters('_artifactsLocationSasToken'))]",
-	"MYVMConfigurationModulesURL": "[concat(parameters('_artifactsLocation'),'/Templates/ConfigureMYVM.zip',parameters('_artifactsLocationSasToken'))]",
+		"MYVMConfigurationModulesURL": "[concat(parameters('_artifactsLocation'),'/Templates/ConfigureMYVM.zip',parameters('_artifactsLocationSasToken'))]",
         "MYVMConfigurationFunction": "ConfigureMYVM.ps1\\ConfigureMYVM"
-		
-    },
+	},
 	"resources": [
         
         {
