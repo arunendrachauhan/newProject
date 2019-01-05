@@ -30,4 +30,4 @@ $Object = New-Object PSObject -Property @{
 "User Name" = $out.givenname
 "SamAccountName" = $out.Samaccountname
 "User Active State" = $out.enabled
-} | Export-Csv C:\userStatus.csv -NoTypeInformation -Encoding UTF8
+}$Object | Export-Csv C:\userStatus.csv -NoTypeInformation -Encoding UTF8
