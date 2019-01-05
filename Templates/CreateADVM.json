@@ -93,7 +93,8 @@
     "vmDataDiskSize": 10,
     "imagePublisher": "MicrosoftWindowsServer",
     "imageOffer": "WindowsServer",
-	"installModulesScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/installModules.ps1',parameters('_artifactsLocationSasToken'))]"
+    "addADUsersScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/AddADUsers.ps1',parameters('_artifactsLocationSasToken'))]",
+    "installModulesScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/installModules.ps1',parameters('_artifactsLocationSasToken'))]"
   },
   "resources": [
     {
@@ -188,7 +189,7 @@
       "resources": [
         {
           "apiVersion": "2018-06-01",
-          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "type": "extensions",
           "name": "[concat(parameters('vmName'),'/vmEnablePSScript')]",
           "location": "[parameters('location')]",
           "dependsOn": [
@@ -200,8 +201,8 @@
             "typeHandlerVersion": "1.9",
             "autoUpgradeMinorVersion": true,
 			"settings": {
-			  "fileUris" : ["[variables('installModulesScriptURI')]"],
-			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file installModules.ps1 -run './installModules.ps1'"
+			  "fileUris" : ["[variables('installModulesScriptURI')]","[variables('addADUsersScriptURI')]"],
+			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file installModules.ps1, AddADUsers.ps1 -run './installModules.ps1'"
 			}
           }
         }
