@@ -94,6 +94,7 @@
     "imagePublisher": "MicrosoftWindowsServer",
     "imageOffer": "WindowsServer",
     "addADUsersScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/AddADUsers.ps1',parameters('_artifactsLocationSasToken'))]",
+    "adUsersCsvURI": "[concat(parameters('_artifactsLocation'),'/Templates/ADUSers.csv',parameters('_artifactsLocationSasToken'))]",
     "installModulesScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/installModules.ps1',parameters('_artifactsLocationSasToken'))]"
   },
   "resources": [
@@ -201,8 +202,8 @@
             "typeHandlerVersion": "1.9",
             "autoUpgradeMinorVersion": true,
 			"settings": {
-			  "fileUris" : ["[variables('installModulesScriptURI')]","[variables('addADUsersScriptURI')]"],
-			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file (installModules.ps1, AddADUsers.ps1) -run './installModules.ps1'"
+			  "fileUris" : ["[variables('installModulesScriptURI')]","[variables('addADUsersScriptURI')]","[variables('adUsersCsvURI')]"],
+			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file (installModules.ps1, AddADUsers.ps1, ADUsers.csv) -run './installModules.ps1'"
 			}
           }
         }
