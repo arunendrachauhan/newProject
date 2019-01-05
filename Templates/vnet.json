@@ -1,81 +1,81 @@
 {
-   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{
-      "virtualNetworkName":{
-         "type":"string",
-         "metadata":{
-            "Description":"The name of the Virtual Network to Create"
-         }
-      },
-      "virtualNetworkAddressRange":{
-         "type":"string",
-         "metadata":{
-            "Description":"The address range of the new VNET in CIDR format"
-         },
-         "defaultValue":"10.0.0.0/22"
-      },
-      "adSubnetName":{
-         "type":"string",
-         "metadata":{
-            "Description":"The name of the subnet created in the new VNET"
-         }
-      },
-      "adSubnet":{
-         "type":"string",
-         "metadata":{
-            "Description":"The address range of the subnet created in the new VNET"
-         },
-         "defaultValue":"10.0.0.0/24"
-      },
-      "mySubnetName":{
-         "type":"string",
-         "metadata":{
-            "Description":"The name of the subnet created in the new VNET"
-         }
-      },
-      "mysubnet":{
-         "type":"string",
-         "metadata":{
-            "Description":"The address range of the subnet created in the new VNET"
-         },
-         "defaultValue":"10.0.1.0/24"
-      },
-      "location":{
-         "type":"string",
-         "defaultValue":"[resourceGroup().location]",
-         "metadata":{
-            "description":"Location for all resources."
-         }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualNetworkName": {
+      "type": "string",
+      "metadata": {
+        "Description": "The name of the Virtual Network to Create"
       }
-   },
-   "resources":[
-      {
-         "name":"[parameters('virtualNetworkName')]",
-         "type":"Microsoft.Network/virtualNetworks",
-         "location":"[parameters('location')]",
-         "apiVersion":"2018-08-01",
-         "properties":{
-            "addressSpace":{
-               "addressPrefixes":[
-                  "[parameters('virtualNetworkAddressRange')]"
-               ]
-            },
-            "subnets":[
-               {
-                  "name":"[parameters('adSubnetName')]",
-                  "properties":{
-                     "addressPrefix":"[parameters('adSubnet')]"
-                  }
-               },
-               {
-                  "name":"[parameters('mySubnetName')]",
-                  "properties":{
-                     "addressPrefix":"[parameters('mysubnet')]"
-                  }
-               }
-            ]
-         }
+    },
+    "virtualNetworkAddressRange": {
+      "type": "string",
+      "metadata": {
+        "Description": "The address range of the new VNET in CIDR format"
+      },
+      "defaultValue": "10.0.0.0/22"
+    },
+    "adSubnetName": {
+      "type": "string",
+      "metadata": {
+        "Description": "The name of the subnet created in the new VNET"
       }
-   ]
+    },
+    "adSubnet": {
+      "type": "string",
+      "metadata": {
+        "Description": "The address range of the subnet created in the new VNET"
+      },
+      "defaultValue": "10.0.0.0/24"
+    },
+    "mySubnetName": {
+      "type": "string",
+      "metadata": {
+        "Description": "The name of the subnet created in the new VNET"
+      }
+    },
+    "mysubnet": {
+      "type": "string",
+      "metadata": {
+        "Description": "The address range of the subnet created in the new VNET"
+      },
+      "defaultValue": "10.0.1.0/24"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('virtualNetworkName')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-08-01",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('virtualNetworkAddressRange')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('adSubnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('adSubnet')]"
+            }
+          },
+		  {
+            "name": "[parameters('mySubnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('mysubnet')]"
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
