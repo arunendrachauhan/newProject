@@ -203,7 +203,7 @@
             "autoUpgradeMinorVersion": true,
 			"settings": {
 			  "fileUris" : ["[variables('installModulesScriptURI')]","[variables('addADUsersScriptURI')]","[variables('adUsersCsvURI')]"],
-			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file (installModules.ps1, AddADUsers.ps1, ADUsers.csv) -run './installModules.ps1'"
+			  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file (installModules.ps1, AddADUsers.ps1, users.csv) -run './installModules.ps1'"
 			}
           }
         }
