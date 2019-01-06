@@ -1,0 +1,5 @@
+FirstName,LastName,SAName,Password,Path
+arun,chauhan,arun.chauhan,Password@123,"OU=Users,DC=globant,DC=com"
+d,jay,d.jay,Password@123,"OU=Users,DC=globant,DC=com"
+h,robin,h.robin,Password@123,"OU=Users,DC=globant,DC=com"
+billy,jack,billy.jack,Password@123,"OU=Users,DC=globant,DC=com"

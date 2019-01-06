@@ -94,7 +94,7 @@
     "imagePublisher": "MicrosoftWindowsServer",
     "imageOffer": "WindowsServer",
     "addADUsersScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/AddADUsers.ps1',parameters('_artifactsLocationSasToken'))]",
-    "adUsersCsvURI": "[concat(parameters('_artifactsLocation'),'/Templates/ADUSers.csv',parameters('_artifactsLocationSasToken'))]",
+    "adUsersCsvURI": "[concat(parameters('_artifactsLocation'),'/Templates/users.csv',parameters('_artifactsLocationSasToken'))]",
     "installModulesScriptURI": "[concat(parameters('_artifactsLocation'),'/Templates/installModules.ps1',parameters('_artifactsLocationSasToken'))]"
   },
   "resources": [
